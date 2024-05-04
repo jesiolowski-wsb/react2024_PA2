@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 
-const Counter = (props) => {
-  const [value, setValue] = useState(props.value);
-  console.log(props);
+const Counter = ({ value: passedValue, children }) => {
+  const [value, setValue] = useState(passedValue);
 
   const formatCount = () => (value === 0 ? <span>Zero</span> : value);
 
@@ -15,7 +14,7 @@ const Counter = (props) => {
 
   return (
     <>
-      {props.children}
+      {children}
       <span className={classes}>{formatCount()}</span>
       <button onClick={() => handleIncrement(1)} className="btn btn-secondary">
         increment
