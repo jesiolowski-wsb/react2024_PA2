@@ -12,7 +12,9 @@ const Counters = () => {
   return (
     <>
       {counters.map((counter) => (
-        <Counter key={counter.id} value={counter.value} />
+        <Counter key={counter.id} value={counter.value}>
+          <h4>Component id: {counter.id}</h4>
+        </Counter>
       ))}
     </>
   );
