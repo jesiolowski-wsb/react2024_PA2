@@ -8,21 +8,28 @@ const Counter = (props) => {
   classes += props.counter.value === 0 ? "warning" : "primary";
 
   return (
-    <>
+    <div>
       <span className={classes}>{formatCount()}</span>
       <button
         onClick={() => props.onIncrement(props.counter)}
-        className="btn btn-secondary"
+        className="btn btn-sm btn-secondary"
       >
         +
       </button>
       <button
-        onClick={() => props.onDelete(props.counter.id)}
-        className="btn btn-danger btn-sm m-2"
+        onClick={() => props.onDecrement(props.counter)}
+        className="btn btn-secondary m-2 btn-sm"
+        disabled={props.counter.value === 0}
       >
-        Delete
+        -
       </button>
-    </>
+      <button
+        onClick={() => props.onDelete(props.counter.id)}
+        className="btn btn-danger btn-sm"
+      >
+        x
+      </button>
+    </div>
   );
 };
 

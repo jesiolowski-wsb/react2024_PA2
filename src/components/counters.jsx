@@ -30,6 +30,14 @@ const Counters = () => {
     setCounters(countersReset);
   };
 
+  const handleDecrement = (counter) => {
+    const countersUpdated = [...counters];
+    const index = countersUpdated.indexOf(counter);
+    countersUpdated[index] = { ...counter };
+    countersUpdated[index].value--;
+    setCounters(countersUpdated);
+  };
+
   return (
     <>
       <button onClick={handleReset} className="btn btn-sm btn-primary m-2">
@@ -41,6 +49,7 @@ const Counters = () => {
           counter={counter}
           onDelete={handleDelete}
           onIncrement={handleIncrement}
+          onDecrement={handleDecrement}
         />
       ))}
     </>
