@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Counter = ({ value: passedValue, children }) => {
+const Counter = ({ id, value: passedValue, onDelete }) => {
   const [value, setValue] = useState(passedValue);
 
   const formatCount = () => (value === 0 ? <span>Zero</span> : value);
@@ -14,10 +14,15 @@ const Counter = ({ value: passedValue, children }) => {
 
   return (
     <>
-      {children}
       <span className={classes}>{formatCount()}</span>
       <button onClick={() => handleIncrement(1)} className="btn btn-secondary">
-        increment
+        +
+      </button>
+      <button
+        onClick={() => onDelete(id)}
+        className="btn btn-danger btn-sm m-2"
+      >
+        Delete
       </button>
     </>
   );

@@ -9,12 +9,19 @@ const Counters = () => {
     { id: 4, value: 12 },
   ]);
 
+  const handleDelete = (counterId) => {
+    setCounters(counters.filter((c) => c.id !== counterId));
+  };
+
   return (
     <>
       {counters.map((counter) => (
-        <Counter key={counter.id} value={counter.value}>
-          <h4>Component id: {counter.id}</h4>
-        </Counter>
+        <Counter
+          id={counter.id}
+          key={counter.id}
+          value={counter.value}
+          onDelete={handleDelete}
+        />
       ))}
     </>
   );
