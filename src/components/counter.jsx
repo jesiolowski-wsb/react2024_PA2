@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 
-const Counter = () => {
+const Counter = (props) => {
+  console.log("prosy przekazane do komponentu", props);
+
   const [count, setCount] = useState(0);
 
   const formatCount = () => (count === 0 ? <span>Zero</span> : count);
